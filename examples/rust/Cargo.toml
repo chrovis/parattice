@@ -1,0 +1,8 @@
+[package]
+name = "parattice-example"
+version = "0.1.0"
+authors = ["Koichi Akabe <akabe@xcoo.jp>"]
+edition = "2018"
+
+[dependencies]
+parattice = { path = "../.." }
