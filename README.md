@@ -12,6 +12,18 @@ Java bindings.
 
 [![](http://meritbadge.herokuapp.com/parattice)](https://crates.io/crates/parattice)
 
+## Usage
+
+Add this to your `Cargo.toml`:
+```toml
+[dependencies]
+parattice = "0.2.2"
+```
+
+## Examples
+
+Examples are contained in [examples](/examples) directory.
+
 ## Build and Installation
 
 Prerequisites:
@@ -48,10 +60,6 @@ gradle -b bindings/jni/build.gradle publishToMavenLocal
 ```
 
 The above commands generates two JAR files: a normal JAR file and a native library.
-
-## Examples
-
-Examples are contained in [examples](/examples) directory.
 
 ## Patents
 

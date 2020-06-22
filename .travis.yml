@@ -1,0 +1,16 @@
+language: rust
+rust:
+  - stable
+  - beta
+  - nightly
+jobs:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
+cache: cargo
+deploy:
+  provider: cargo
+  on:
+    branch: master
+    tags: true
+  edge: true

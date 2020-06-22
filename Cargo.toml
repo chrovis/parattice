@@ -12,6 +12,7 @@ keywords = ["nlp", "paraphrase"]
 categories = ["text-processing"]
 exclude = [
     ".gitignore",
+    ".travis.yml",
     "bindings",
     "examples",
     "README.md",
