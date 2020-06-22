@@ -10,6 +10,8 @@ lattice.
 parattice is implemented in Rust, and this repository also provides C++ and
 Java bindings.
 
+[![](http://meritbadge.herokuapp.com/parattice)](https://crates.io/crates/parattice)
+
 ## Build and Installation
 
 Prerequisites:

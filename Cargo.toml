@@ -3,6 +3,19 @@ name = "parattice"
 version = "0.2.2"
 authors = ["Koichi Akabe <akabe@xcoo.jp>"]
 edition = "2018"
+description = "Recursive paraphrase lattice generator"
+readme = "README-crate.md"
+repository = "https://github.com/chrovis/parattice/"
+license = "Apache-2.0"
+license-file = "LICENSE"
+keywords = ["nlp", "paraphrase"]
+categories = ["text-processing"]
+exclude = [
+    ".gitignore",
+    "bindings",
+    "examples",
+    "README.md",
+]
 
 [dependencies]
 libc = "0.2.71"
