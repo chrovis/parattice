@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
 set(CMAKE_POLICY_DEFAULT_CMP0048 NEW)
 
-project(parattice VERSION 0.2.1 LANGUAGES CXX)
+project(parattice VERSION 0.2.2 LANGUAGES CXX)
 
 option(PARATTICE_BUILD_TESTS "Builds test binaries." OFF)
 option(PARATTICE_GTEST_SOURCE_DIR "Source directory of Google Test library." "")

@@ -1,6 +1,6 @@
 [package]
 name = "parattice"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Koichi Akabe <akabe@xcoo.jp>"]
 edition = "2018"
 

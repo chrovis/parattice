@@ -68,11 +68,11 @@ To convert the generated lattice to an image file, run `dot -Tpng -O ./paraphras
 4. If you use Mac OS X, please edit [project.clj](/examples/clojure/project.clj) as follows:
 
     ```clojure
-    [parattice "0.2.1-SNAPSHOT" :classifier "linux-amd64"]
+    [parattice "0.2.2-SNAPSHOT" :classifier "linux-amd64"]
     ```
     ↓↓↓
     ```clojure
-    [parattice "0.2.1-SNAPSHOT" :classifier "darwin-amd64"]
+    [parattice "0.2.2-SNAPSHOT" :classifier "darwin-amd64"]
     ```
 
 5. Run `lein run` in [clojure](/examples/clojure) directory.
