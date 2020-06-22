@@ -1,16 +1,30 @@
+stages:
+  - test
+  - deploy
+
 language: rust
-rust:
-  - stable
-  - beta
-  - nightly
-jobs:
+
+matrix:
+  include:
+    - stage: test
+      rust: stable
+    - stage: test
+      rust: beta
+    - stage: test
+      rust: nightly
+    - if: (branch = master) AND (tag IS present)
+      rust: stable
+      script: skip
   allow_failures:
     - rust: nightly
   fast_finish: true
+
 cache: cargo
+
 deploy:
   provider: cargo
   on:
+    condition: $TRAVIS_BUILD_STAGE_NAME = Deploy
     branch: master
     tags: true
   edge: true
