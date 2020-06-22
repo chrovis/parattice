@@ -1,24 +1,33 @@
-use parattice::PaRattice;
-use parattice::LatticeKMP;
 use parattice::Lattice;
+use parattice::LatticeKMP;
+use parattice::PaRattice;
 
 use std::fs::File;
-use std::io::prelude::*;
 use std::io;
+use std::io::prelude::*;
 use std::path::Path;
 
 fn main() -> Result<(), io::Error> {
     // initialization
-    let paradict
-      = vec![vec![vec!["blood", "stem", "cell"], vec!["造血", "幹", "細胞"],
-                  vec!["hematopoietic", "stem", "cell"]],
-             vec![vec!["造血", "幹", "細胞", "移植"],
-                  vec!["hematopoietic", "stem", "cell", "transplantation"]],
-             vec![vec!["stem", "cell"], vec!["幹", "細胞"]],
-             vec![vec!["幹", "細胞", "移植"], vec!["rescue", "transplant"],
-                  vec!["stem", "cell", "rescue"]],
-             vec![vec!["rescue"], vec!["救命"]],
-             vec![vec!["blood"], vec!["血液"]]];
+    let paradict = vec![
+        vec![
+            vec!["blood", "stem", "cell"],
+            vec!["造血", "幹", "細胞"],
+            vec!["hematopoietic", "stem", "cell"],
+        ],
+        vec![
+            vec!["造血", "幹", "細胞", "移植"],
+            vec!["hematopoietic", "stem", "cell", "transplantation"],
+        ],
+        vec![vec!["stem", "cell"], vec!["幹", "細胞"]],
+        vec![
+            vec!["幹", "細胞", "移植"],
+            vec!["rescue", "transplant"],
+            vec!["stem", "cell", "rescue"],
+        ],
+        vec![vec!["rescue"], vec!["救命"]],
+        vec![vec!["blood"], vec!["血液"]],
+    ];
     let parattice = PaRattice::new(paradict);
 
     // lattice generation

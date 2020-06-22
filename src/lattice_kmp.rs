@@ -18,6 +18,8 @@ impl<'a> LatticeKMP<'a> {
     /// # Example
     ///
     /// ```
+    /// use parattice::LatticeKMP;
+    ///
     /// let pattern = vec!["幹", "細胞"];
     /// let kmp = LatticeKMP::new(pattern);
     /// ```
@@ -32,8 +34,8 @@ impl<'a> LatticeKMP<'a> {
             cpattern.push(j + if pattern[j] == pattern[i] { 1 } else { 0 });
         }
         LatticeKMP {
-            pattern: pattern,
-            cpattern: cpattern,
+            pattern,
+            cpattern,
         }
     }
 
@@ -46,6 +48,36 @@ impl<'a> LatticeKMP<'a> {
     /// # Example
     ///
     /// ```
+    /// use parattice::PaRattice;
+    /// use parattice::Lattice;
+    /// use parattice::LatticeKMP;
+    ///
+    /// let pattern = vec!["幹", "細胞"];
+    /// let kmp = LatticeKMP::new(pattern);
+    ///
+    /// let paradict = vec![
+    ///     vec![
+    ///         vec!["blood", "stem", "cell"],
+    ///         vec!["造血", "幹", "細胞"],
+    ///         vec!["hematopoietic", "stem", "cell"],
+    ///     ],
+    ///     vec![
+    ///         vec!["造血", "幹", "細胞", "移植"],
+    ///         vec!["hematopoietic", "stem", "cell", "transplantation"],
+    ///     ],
+    ///     vec![vec!["stem", "cell"], vec!["幹", "細胞"]],
+    ///     vec![
+    ///         vec!["幹", "細胞", "移植"],
+    ///         vec!["rescue", "transplant"],
+    ///         vec!["stem", "cell", "rescue"],
+    ///     ],
+    ///     vec![vec!["rescue"], vec!["救命"]],
+    ///     vec![vec!["blood"], vec!["血液"]],
+    /// ];
+    /// let parattice = PaRattice::new(paradict);
+    /// let words = vec!["造血", "幹", "細胞", "移植"];
+    /// let lattice = parattice.get_lattice(&words, true, 2);
+    ///
     /// let results = kmp.search(&lattice);
     /// ```
     pub fn search(&self, lattice: &'a Lattice) -> Vec<Vec<(&'a str, usize)>> {
@@ -70,11 +102,11 @@ impl<'a> LatticeKMP<'a> {
                     j += 1;
                 }
                 let mut new_candidate = VecDeque::new();
-                new_candidate.push_back(edge.clone());
+                new_candidate.push_back(*edge);
                 let mut k = candidate.len();
                 while new_candidate.len() < j {
                     k -= 1;
-                    new_candidate.push_front(candidate[k].clone());
+                    new_candidate.push_front(candidate[k]);
                 }
                 new_candidate.push_front(("", candidate[k - 1].1));
                 if j == self.pattern.len() {
